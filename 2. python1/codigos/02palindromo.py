@@ -10,11 +10,15 @@
 
 def palindromo(palabra):
     palabra = palabra.replace(" ","").lower()
+
     # if palabra == palabra[::-1]:
     #     return True
     # else:
     #     return False
-    return True if palabra == palabra[::-1] else False
+
+    # return True if palabra == palabra[::-1] else False
+
+    return palabra == palabra[::-1]
 
 
 def run():
@@ -28,3 +32,14 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+#crear shortcut ctrl+alt+R
+
+# limite = 1000 #El interprete lo toma como variable
+# LIMITE = 1000 #El interprete lo toma como constante
+
+# print(type(range(4)))
+# print(range(5))
+# print(list(range(6)))
+# for contador in range(1,4):
+#     print(contador)
