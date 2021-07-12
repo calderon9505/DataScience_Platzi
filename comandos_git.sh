@@ -16,10 +16,8 @@ git config --global core.editor "code --wait"
 
 # First steps
 git add archivo.xxx                 #añade archivo al Staging Area (ram)
-git restore archivo.xxx             #discard changes in working directory
-git restore --staged archivo.xxx    #unstage. back to working directory
 git commit -m " "                   #envia el archivo al repositorio
-git commit -am " "                  #-a saltarse el add;
+git commit -am " "                  #-a saltarse el add; (-ma no sirve)
 git status                          #estado de los archivos
 git status -s (--short)             #estado conciso de los archivos
                                     #left-staged; right-unstaged
@@ -41,7 +39,9 @@ git diff --staged (--cached)        #staging Area vs Repositorio
 
 
 # Undoing Things
-git commit --amend                  
+git restore archivo.xxx             #discard changes in working directory
+git restore --staged archivo.xxx    #unstage. back to working directory
+git commit --amend                  #rehacer commit adicionando lo que esté en staging
 git reset old_code --soft           #version anterior pero manteniendo el staging
 git reset old_code --hard           #version anterior borrando todo los demás commits
 
