@@ -37,6 +37,7 @@ git log -p -2                       #-p diferencias introduc. -2 solo dos commit
 git log --stat                      #archivos en que se hicieron cambios por commit
 git log --pretty=oneline            #cada commit es una linea (short, full, fuller)
 git log --graph                     #grafico ASCII muestra historial (usar con oneline)
+git log --graph --oneline
 git log --since=" "                 #(2.weeks)("2008-01-15")("2 years 1 day 3 minutes ago")
 git log --author " " --grep " " --all-match
 git diff                            #Working directory vs staging area (WD vs Rep medio enreado)
@@ -55,6 +56,7 @@ git checkout master archivo.xxx     #archivo de vuelta a su version actual
 
 
 #Branching
+git branch                          #listar ramas
 git brach nombreRama                #crear una rama
 git brach -b nombreRama             #borrar rama
 git checkout nombreRama             #pasarme a una rama (-b crear y pasar a la rama)
@@ -73,8 +75,21 @@ git push origin main                #enviar repo local al github
 git fetch [remote-name]             #trae actualizaciones al Repo local pero no al WD (merge)
 
 
-#public and private key             #una clave privada y pública por cada computadora y usuario
+# Public and private key             #una clave privada y pública por cada computadora y usuario
 ssh-keygen -t rsa -b 4096 -C "calderon950527@gmail.com" #(id_rsa.pub publica)(id_rsa privada)
 eval $(ssh-agent -s)                #revisar que servidor de llaves ssh esté prendido (Agent pid 869)
 ssh-add ~/.ssh/id_rsa               #agregar llave privada al entorno y debo agregarla en github
 git remote set-url origin git@github.com:calderon9505/Curso_Git.git
+
+# Tag
+git tag                             #lista de tags
+git tag -a v0.1 -m " " _commit_     #crear un tag
+git tag -d _tag_                    #borrar tag
+git show-ref --tags                 #referencias de tags
+git push origin --tags              #enviar tags al remoto
+git push origin :refs/tags/_tag_    #borrar tags del remoto
+
+# Branches in Github
+git show-branch
+git show-branch --all
+gitk                                #entorno gráfico para las ramas
