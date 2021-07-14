@@ -6,13 +6,14 @@
 shift + Ins                         #para pegar codigo en terminal Git bash (Insert)
 cat .gitignore                      #lista de archivos o patrones a ignorar (*.ini)
 git branch -M main                  #nombrar la rama como "main"
+git config --global alias.grafico 'log --graph --pretty=oneline' #git grafico
 
 
 # GIT Configuration
 git init                            #crea repositorio
 git clone _url_                     #clonar repositorio existente
 git config                          #todas las configuraciones de Git
-git config --list                   #configuracion actual de Git
+git config --list (-l)              #configuracion actual de Git
 git config --list --show-origin     #origen del archivo gitconfig(avanzado)
 git config --global user.name "Sebastian Calderon"
 git config --global user.email "calderon950527@gmail.com"
@@ -29,7 +30,7 @@ git status -s (--short)             #estado conciso de los archivos
                                     #??-untracked; A-staged(nuevo); M-modified
 
 
-# Commit history and comparations   #HEAD. apuntador a la rama local en al que estoy
+# Commit history and comparations   #HEAD. apuntador a la rama local en la que estoy
 git show archivo.xxx                #historial de cambios del archivo (git show, ultimo cambio)
 git log archivo.xxx                 #historial del archivo (git log)
 git log -p -2                       #-p diferencias introduc. -2 solo dos commits
@@ -72,3 +73,8 @@ git push origin main                #enviar repo local al github
 git fetch [remote-name]             #trae actualizaciones al Repo local pero no al WD (merge)
 
 
+#public and private key             #una clave privada y pública por cada computadora y usuario
+ssh-keygen -t rsa -b 4096 -C "calderon950527@gmail.com" #(id_rsa.pub publica)(id_rsa privada)
+eval $(ssh-agent -s)                #revisar que servidor de llaves ssh esté prendido (Agent pid 869)
+ssh-add ~/.ssh/id_rsa               #agregar llave privada al entorno y debo agregarla en github
+git remote set-url origin git@github.com:calderon9505/Curso_Git.git
