@@ -5,6 +5,7 @@
 
 shift + Ins                         #para pegar codigo en terminal Git bash (Insert)
 cat .gitignore                      #lista de archivos o patrones a ignorar (*.ini)
+git branch -M main                  #nombrar la rama como "main"
 
 
 # GIT Configuration
@@ -61,13 +62,13 @@ git merge branch-name               #trae todo lo de la otra rama a mi rama actu
 
 
 # Working with Remotes              #Origin. nombre servidor remoto del que cloné
-git romete -v                       #remotos que tengo configurados (-v ver url)
-git remote add origin _url_         #crear remoto
+git clone _url_                     #al clonar ya tengo conexión al remoto
+git remote -v                       #remotos que tengo configurados (-v ver url)
+git remote add origin _url_         #crear origen remoto
 git remote show [remote-name]       #inspeccionar un remoto (raname, rm)
-git push origin master              #enviar repo local al github
-git pull origin master              #traer repo de github
-git push [remote-name] [brach-name] #se enviaran todos los commits al servidor (origin master)
-git fetch [remote-name]             #trae actualizaciones al Repo local pero no al WD
-git pull                            #fetch + merge
+git pull origin main                #traer repo de github (fetch + merge)
+git pull origin main --allow-unrelated-histories
+git push origin main                #enviar repo local al github
+git fetch [remote-name]             #trae actualizaciones al Repo local pero no al WD (merge)
 
 
