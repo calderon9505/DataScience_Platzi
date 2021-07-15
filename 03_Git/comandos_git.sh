@@ -61,7 +61,7 @@ git brach nombreRama                #crear una rama
 git brach -b nombreRama             #borrar rama
 git checkout nombreRama             #pasarme a una rama (-b crear y pasar a la rama)
 git merge branch-name               #trae todo lo de la otra rama a mi rama actual
-                                    #si hay conflicto, se solucionan y se hace commit
+git merge --abort                   #si hay conflicto, se solucionan y se hace commit o se aborta el merge
 
 
 # Working with Remotes              #Origin. nombre servidor remoto del que cloné
@@ -91,5 +91,30 @@ git push origin :refs/tags/_tag_    #borrar tags del remoto
 
 # Branches in Github
 git show-branch
-git show-branch --all
+git show-branch --all               #tambien muestra ramas remotas
 gitk                                #entorno gráfico para las ramas
+git pull origin _branch_            #traerme rama especifica de github
+
+# Pull request
+#Pull request es una caracteristica propia de Github, no de Git
+#estado intermedio antes de enviar el merge
+#crear rama para hacer cambios 
+#hacer push normal de la rama creada
+#en github puedo hacer un pull request para hacer merge de la rama
+#puedo agregar revisores (los revisores verifican el codigo y aprueban)
+#el merge lo puede hacer el dueño del repositorio o los miembros 
+
+# Fork
+#Caracteristica propia de Github, no de Git
+#sirve para hacer aporte a un repositorio en el que no soy miembro
+#se forkea el repositorio que quiero
+#se clona mi fork en mi pc local
+#se hacen cambios y se crea un pull request
+#el dueño del repositorio puede aceptar el pull request o rechazar
+#si el repo fuente cambia, mi repo(fork) se desactualiza
+#entonces yo puedo crear otra fuente(remoto) para hacer pull
+git remote add upstream https://github.com/calderon9505/Curso_Git.git
+#tengo dos remotos: el mio y el original(upstream)
+#hago pull del remoto upstream y hago push al remoto origin
+#con esto mi repo fork ya está actualizado
+
