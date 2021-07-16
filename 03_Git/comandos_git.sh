@@ -6,7 +6,8 @@
 shift + Ins                         #para pegar codigo en terminal Git bash (Insert)
 cat .gitignore                      #lista de archivos o patrones a ignorar (*.ini)
 git branch -M main                  #nombrar la rama como "main"
-git config --global alias.grafico 'log --graph --pretty=oneline' #git grafico
+git config --global alias.grafico 'log --graph --pretty=oneline -15' #git grafico
+git config --global alias.total 'log --oneline --graph --all -15' #git total
 
 
 # GIT Configuration
@@ -59,9 +60,15 @@ git checkout master archivo.xxx     #archivo de vuelta a su version actual
 git branch                          #listar ramas
 git branch nombreRama               #crear una rama
 git branch -d nombreRama            #borrar rama
+git branch -D nombreRama            #forzar borrado de rama que no ha sido fusionada
+git branch -v                       #último commit de cada rama
 git checkout nombreRama             #pasarme a una rama (-b crear y pasar a la rama)
+git checkout --track _ramaremota_   #crear rama local teniendo en cuenta la rama remota
 git merge branch-name               #trae todo lo de la otra rama a mi rama actual
 git merge --abort                   #si hay conflicto, se solucionan y se hace commit o se aborta el merge
+
+# Rebase
+git rebase main                     #parado en la rama secundaria, se hace rabase a la rapa primaria
 
 
 # Working with Remotes              #Origin. nombre servidor remoto del que cloné
