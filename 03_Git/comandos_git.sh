@@ -127,4 +127,9 @@ git remote add upstream https://github.com/calderon9505/Curso_Git.git
 
 # Gitignore
 #Archivo oculto .gitignore
-#imgur.com TODO
+#imgur.com para subir fotos a la nube y poder refereciar externamente
+#comparar con otros archivos .gitignore de otros repositorios (arduino)
+
+# Readme.md
+#Aprender del Readme de repositorios famosos
+#https://pandao.github.io/editor.md/en.html
