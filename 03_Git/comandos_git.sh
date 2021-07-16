@@ -57,8 +57,8 @@ git checkout master archivo.xxx     #archivo de vuelta a su version actual
 
 #Branching
 git branch                          #listar ramas
-git brach nombreRama                #crear una rama
-git brach -b nombreRama             #borrar rama
+git branch nombreRama               #crear una rama
+git branch -d nombreRama            #borrar rama
 git checkout nombreRama             #pasarme a una rama (-b crear y pasar a la rama)
 git merge branch-name               #trae todo lo de la otra rama a mi rama actual
 git merge --abort                   #si hay conflicto, se solucionan y se hace commit o se aborta el merge
@@ -109,7 +109,7 @@ git pull origin _branch_            #traerme rama especifica de github
 #sirve para hacer aporte a un repositorio en el que no soy miembro
 #se forkea el repositorio que quiero
 #se clona mi fork en mi pc local
-#se hacen cambios y se crea un pull request
+#se hacen cambios, se hace push y se crea un pull request en github
 #el dueño del repositorio puede aceptar el pull request o rechazar
 #si el repo fuente cambia, mi repo(fork) se desactualiza
 #entonces yo puedo crear otra fuente(remoto) para hacer pull
@@ -118,3 +118,9 @@ git remote add upstream https://github.com/calderon9505/Curso_Git.git
 #hago pull del remoto upstream y hago push al remoto origin
 #con esto mi repo fork ya está actualizado
 
+# Deployment to Server
+#en la carpeta donde están los archivos del servidor se hace un git clone
+#para cualquier cambio en el github se debe hacer pull en el servidor
+#En realidad esto es mala practica, pero es básico
+#Travis-CI conecta las ramas de github con los servidores
+#Jenkins hace los mismo que Travis pero más poderoso
