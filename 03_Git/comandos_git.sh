@@ -124,3 +124,7 @@ git remote add upstream https://github.com/calderon9505/Curso_Git.git
 #En realidad esto es mala practica, pero es básico
 #Travis-CI conecta las ramas de github con los servidores
 #Jenkins hace los mismo que Travis pero más poderoso
+
+# Gitignore
+#Archivo oculto .gitignore
+#imgur.com TODO
