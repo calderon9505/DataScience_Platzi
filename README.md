@@ -11,6 +11,6 @@ Tambien para recodar la importancia de aprender inglés mínimo a un nivel B2 pa
 
 > Repositorio creado el 30 de mayo del 2021.
 
-##Autor 
+## Autor 
 
 Haz clic [aquí](https://imgur.com/4ED1q09) para conocer el dueño del repositorio.
