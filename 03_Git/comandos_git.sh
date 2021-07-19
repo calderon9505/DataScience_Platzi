@@ -63,6 +63,7 @@ git branch -d nombreRama            #borrar rama
 git branch -D nombreRama            #forzar borrado de rama que no ha sido fusionada
 git branch -v                       #último commit de cada rama
 git checkout nombreRama             #pasarme a una rama (-b crear y pasar a la rama)
+git checkout -                      #volver a la rama anterior
 git checkout --track _ramaremota_   #crear rama local teniendo en cuenta la rama remota
 git merge branch-name               #trae todo lo de la otra rama a mi rama actual
 git merge --abort                   #si hay conflicto, se solucionan y se hace commit o se aborta el merge
@@ -140,3 +141,10 @@ git remote add upstream https://github.com/calderon9505/Curso_Git.git
 # Readme.md
 #Aprender del Readme de repositorios famosos
 #https://pandao.github.io/editor.md/en.html
+
+# Rebase
+#reorganiza los commits de una rama al final de otra rama
+#estando ubicada en la rama secundaria, realizo el rebase.
+git rabase _ramaARebasar_
+#luego paso a la rama principal y hago merge (fas-forward) (merge normal)
+
