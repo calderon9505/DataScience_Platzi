@@ -148,3 +148,17 @@ git remote add upstream https://github.com/calderon9505/Curso_Git.git
 git rabase _ramaARebasar_
 #luego paso a la rama principal y hago merge (fas-forward) (merge normal)
 
+# Stash
+#Cuando quiero cambiar de rama pierdo los cambios a los que NO haya hecho comit
+#pero puedo enviar los cambios a Stash, y cambiar de rama sin perder los cambios
+git stash                           #WIP(work in progress)
+git stash list
+git stash pop                       #se vuelve a la rama principal y se deshace el stash
+git stash branch _nuevaRama_        #para guardar los cambios del stash en una nueva rama
+git stash drop                      #eliminar lo que esté en el stash
+#stash es util cuando se hacen pequeños experimientos que no merecen una rama
+#stash se usa mucho cuando son proyectos grandes y complejos, sin duda lo voy a usar
+
+# Clean
+git clean --dry-run                 #simular lo que se va a borrar
+git clean -f                        #borrar (sin la -f no funciona)
