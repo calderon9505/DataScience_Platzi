@@ -62,15 +62,12 @@ git branch nombreRama               #crear una rama
 git branch -d nombreRama            #borrar rama
 git branch -D nombreRama            #forzar borrado de rama que no ha sido fusionada
 git branch -v                       #último commit de cada rama
+git branch --all                    #ver ramas locales y remotas (-r solo remotas)
 git checkout nombreRama             #pasarme a una rama (-b crear y pasar a la rama)
 git checkout -                      #volver a la rama anterior
 git checkout --track _ramaremota_   #crear rama local teniendo en cuenta la rama remota
 git merge branch-name               #trae todo lo de la otra rama a mi rama actual
 git merge --abort                   #si hay conflicto, se solucionan y se hace commit o se aborta el merge
-
-# Rebase
-git rebase main                     #parado en la rama secundaria, se hace rabase a la rapa primaria
-
 
 # Working with Remotes              #Origin. nombre servidor remoto del que cloné
 git clone _url_                     #al clonar ya tengo conexión al remoto
@@ -153,7 +150,7 @@ git rabase _ramaARebasar_
 #pero puedo enviar los cambios a Stash, y cambiar de rama sin perder los cambios
 git stash                           #WIP(work in progress)
 git stash list
-git stash pop                       #se vuelve a la rama principal y se deshace el stash
+git stash pop                       #debo volver a la rama principal y deshacer el stash
 git stash branch _nuevaRama_        #para guardar los cambios del stash en una nueva rama
 git stash drop                      #eliminar lo que esté en el stash
 #stash es util cuando se hacen pequeños experimientos que no merecen una rama
@@ -162,3 +159,23 @@ git stash drop                      #eliminar lo que esté en el stash
 # Clean
 git clean --dry-run                 #simular lo que se va a borrar
 git clean -f                        #borrar (sin la -f no funciona)
+
+# Cherry-pick
+# añadir a la rama principal commits específicos de otra rama
+git cherry-pick _codigoCommit_      # parado en la rama principal
+#dicho commit se pega al final de la rama principal (automaticamente)
+#los cambios no son específicamente del commit, son tambien todos los commits anteriores 
+
+# Reflog
+#todo un historial de cosas que he hecho en git, incluye:
+#commits, checkouts, amends, resets.... se muestra TODOS el historial
+
+# Grep
+git grep _palabra_                  #busca en los archivos la palabra 
+                                    #(-n ver linea, -c count)
+git log -S _palabra_                #relacion de la palabra con commit
+
+# Alias interesantes
+git shortlog -sn --all --no-merges  #contar todos commits de todas personas 
+                                    #(incluso commits borrados pero no merge)
+git blame archivo.xxx -L35,42 -c    #ver quien escribio cada linea (de la 35 a 42)
