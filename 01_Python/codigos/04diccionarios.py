@@ -15,16 +15,14 @@ def run():
 
     # for pais in poblacion_paises.keys():
     #     print(pais)
-    # for pais in poblacion_paises.values():
-    #     print(pais)
-    # for pais in poblacion_paises.items():
-    #     print(pais)
-    #     print(type(pais)) #son tuplas
+    # for poblacion in poblacion_paises.values():
+    #     print(poblacion)
+    # for item in poblacion_paises.items():
+    #     print(item)
+    #     print(type(item)) #son tuplas
     for pais, poblacion in poblacion_paises.items():
-        print(pais)
-        print(type(pais))
-        print(poblacion)
-        print(type(poblacion))
+        print(pais, "\t", type(pais))
+        print(poblacion, "\t", type(poblacion))
 
 
 if __name__ == '__main__':
