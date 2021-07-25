@@ -85,7 +85,7 @@ type ls                 #ls is aliased to 'ls --color=auto'
 
 alias l="ls -lh"        #creacion de alias
 alias la="ls -lA"                       
-bash                    #para ejecutar cambios de .bashrc
+# abrir archivo .bashrc para poner los alias. ejecutar "bash" para ver los cambios
 
 cd --help		    #ayuda del comando
 help cd
