@@ -23,5 +23,9 @@ import this
 "pip freeze > requirements.txt"         
 "pip install -r requirements.txt"       #instala las dependencias específicas del proyecto
 #PYENV es otro manejador de paquetes más complejo pero más completo
-"pip show paquete"
+"pip show _paquete_"
 "pip list"
+
+# Anaconda
+#software completo pensado para los cientificos de datos
+#distribucion espacial de python que permite crear venv y hacer pip de manera grafica
