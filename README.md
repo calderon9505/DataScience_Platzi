@@ -14,3 +14,5 @@ Tambien para recodar la importancia de aprender inglés mínimo a un nivel B2 pa
 ## Autor 
 
 Haz clic [aquí](https://imgur.com/4ED1q09) para conocer el dueño del repositorio.
+
+> La disciplina es lo que queda cuando la motivación se va.
