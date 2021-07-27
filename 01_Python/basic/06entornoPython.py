@@ -13,7 +13,8 @@ import this
 "sudo apt install python3.8-venv"       # libreria para crear venv (necesaria en wsl)
 "python3 -m venv venv"                  # creacion entorno (-m module). (se crea carpeta venv)
 #en la carpeta bin está el comando que activa el venv (en windows es "Script")
-"source venv/bin/activate"              # crear alias y llamar activate
+"source venv/bin/activate"              # crear alias y llamar activate (linux)
+".\venv\Scripts\activate"               #alias activate=.\venv\Scripts\activate (windows)
 "deactivate"
 
 # Package Installer for Python PIP

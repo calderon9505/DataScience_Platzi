@@ -1,3 +1,6 @@
+#listas de diccionarios
+#diccionarios de listas
+
 def run():
     my_list = [1, "hello", True, 4.5]
     my_dict = {"firstname" : "sebastian", "lastname" : "calderon"}
@@ -19,8 +22,9 @@ def run():
     for key, value in super_dict.items():
         print(key, " - ", value)
     
-    for  in super_list.items():
-        print(key, " - ", value)
+    for dicc in super_list:
+        print(dicc)
+    
 
 if __name__ == "__main__":
     run()
