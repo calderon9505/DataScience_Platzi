@@ -20,7 +20,7 @@ import this
 # Package Installer for Python PIP
 #correr todo esto con el venv activado
 "pip freeze"                            #módulos que se tienen instalados (pip3)
-"pip install pandas"                    #pandas incluye pandas, pytz, numpy, puthon_dateutil, six
+"pip install pandas"                    #pandas incluye pandas, pytz, numpy, python_dateutil, six
 "pip freeze > requirements.txt"         
 "pip install -r requirements.txt"       #instala las dependencias específicas del proyecto
 #PYENV es otro manejador de paquetes más complejo pero más completo
