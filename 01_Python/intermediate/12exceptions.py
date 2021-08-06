@@ -39,4 +39,4 @@ def run():
       print("Debes ingresar un número")
 
 if __name__ == "__main__":
-    run()
+    run2()
