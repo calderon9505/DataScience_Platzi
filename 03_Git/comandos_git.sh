@@ -81,7 +81,7 @@ git fetch [remote-name]             #trae actualizaciones al Repo local pero no 
 
 
 # Public and private key             #una clave privada y pública por cada computadora y usuario
-ssh-keygen -t rsa -b 4096 -C "calderon950527@gmail.com" #(id_rsa.pub publica)(id_rsa privada)
+ssh-keygen -t rsa -b 4096 -C "calderon950527@gmail.com" #(id_rsa.pub publica)(id_rsa privada)(estando en el home)
 eval $(ssh-agent -s)                #revisar que servidor de llaves ssh esté prendido (Agent pid 869)
 ssh-add ~/.ssh/id_rsa               #agregar llave privada al entorno y debo agregarla en github
 git remote set-url origin git@github.com:calderon9505/Curso_Git.git
