@@ -66,4 +66,24 @@ Se aplican sobre registros individuales.
 
 # Recursos
 
+* Interpretación de los JOIN
+
 ![](https://ingenieriadesoftware.es/wp-content/uploads/2018/07/sqljoin.jpeg)
+
+* Subconsultas
+
+    * Subconsulta Escalonada
+    * Subconsulta de lista
+    * Subconsulta correlacionada
+
+* Consultas de acción
+
+    * Actualización
+    * Creación de tabla
+    * Elliminación
+    * Datos anexados
+
+* Consultas de predicado
+
+    * DISTINC
+    * DISTINCROW

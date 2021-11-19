@@ -20,8 +20,19 @@ DEFAULT CHARACTER SET = utf8;
 USE `platziblog`;
 CREATE OR REPLACE VIEW `platzi_people` AS
 SELECT * FROM platziblog.people;
+SELECT * FROM platzi_people;
 
 
+-- triggers
+create trigger productos_AI 
+after insert on productos for each row
+insert into regproductos(codigoarticulo, nombrearticulo, precio, insertado)
+values(new.codigoarticulo, new.nombrearticulo, new.precio, now());
+
+-- stored procedures
+create procedure actualizaproductos(precionuevo double, codigo varchar(4))
+update productos set precio = precionuevo where codigoarticulo=codigo;
+call actualizaproductos(60,'AR22');
 
 -- ALTER
 

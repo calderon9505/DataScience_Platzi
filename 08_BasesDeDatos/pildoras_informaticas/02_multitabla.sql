@@ -5,7 +5,8 @@
 
 -- UNION elimina los registros repetidos, a diferencia de UNION ALL 
 SELECT * FROM PRODUCTOS WHERE SECCION = 'DEPORTES'
-UNION SELECT * FROM PRODUCTOSNUEVOS WHERE SECCION = 'DEPORTES DE RIESGO';
+UNION
+SELECT * FROM PRODUCTOSNUEVOS WHERE SECCION = 'DEPORTES DE RIESGO';
 
 --------------------------------------------------------------------
 
@@ -15,7 +16,7 @@ UNION SELECT * FROM PRODUCTOSNUEVOS WHERE SECCION = 'DEPORTES DE RIESGO';
 -- Interpretar como parte del FROM.
 
 -- INNER JOIN
--- conjunto interseccion
+-- conjunto "interseccion"
 SELECT * FROM CLIENTES 
 INNER JOIN PEDIDOS 
 ON CLIENTES.CODIGOCLIENTE = PEDIDOS.CODIGOCLIENTE;
@@ -42,6 +43,17 @@ RIGHT JOIN PEDIDOS
 ON CLIENTES.CODIGOCLIENTE = PEDIDOS.CODIGOCLIENTE
 WHERE CLIENTES.CODIGOCLIENTE IS NULL;
 
--- Para el conjunto union o diferencia simetrica
--- se usa union junto con las consultas anteriores
+-- Para el conjunto "union" o "diferencia simetrica"
+-- se usa UNION junto con las consultas anteriores
 -- o con FULL JOIN
+
+--------------------------------------------------------------------
+
+-- DISTINCT
+-- Clientes que han hecho pedido y sus formas de pago
+-- el distintc se puede aplicar a todas las consultas de accion
+SELECT DISTINCT CODIGOCLIENTE, FORMADEPAGO FROM PEDIDOS ORDER BY CODIGOCLIENTE;
+SELECT CODIGOCLIENTE, FORMADEPAGO FROM PEDIDOS GROUP BY CODIGOCLIENTE, FORMADEPAGO ORDER BY CODIGOCLIENTE;
+SELECT CODIGOCLIENTE, GROUP_CONCAT(DISTINCT FORMADEPAGO) FROM PEDIDOS GROUP BY CODIGOCLIENTE ORDER BY CODIGOCLIENTE;
+-- conteo de las formas de pago de cada cliente
+SELECT CODIGOCLIENTE, FORMADEPAGO, COUNT(*) AS TOTAL FROM PEDIDOS GROUP BY CODIGOCLIENTE, FORMADEPAGO ORDER BY CODIGOCLIENTE;
