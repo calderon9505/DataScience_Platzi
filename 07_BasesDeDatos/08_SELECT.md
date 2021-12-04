@@ -9,6 +9,8 @@ Command + From + Where + Group by + Having + Order by
 * GROUP BY
 * HAVING
 * ORDER BY (ASC, DESC)
+* OFFSET
+* LIMIT
 
 ## Alias
 
@@ -24,12 +26,17 @@ Se aplican sobre grupos.
 * MIN( )
 * MAX( )
 
+Otras funciones de agregación
+
+* IF()
+* CASE
+
 ## Operators
 
 * \>, <, >=, <=, =, !=, <>
 * AND, OR, NOT
 * BETWEEN
-* LIKE
+* LIKE (with wildcards)
 * IN
 * ALL
 * ANY

@@ -2,7 +2,7 @@
 -- almacena un procedimiento(consulta , ....) que se usa bastante
 -- se llama al procedimiento con CALL
 
-create procedure muestrmuestraclientesmuestraclientesaclientes()
+create procedure muestraclientes()
 select * from clientes where poblacion='madrid';
 select * from clientes;
 

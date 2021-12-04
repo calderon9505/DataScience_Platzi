@@ -26,6 +26,7 @@ ON CLIENTES.CODIGOCLIENTE = PEDIDOS.CODIGOCLIENTE;
 SELECT * FROM CLIENTES 
 LEFT JOIN PEDIDOS 
 ON CLIENTES.CODIGOCLIENTE = PEDIDOS.CODIGOCLIENTE;
+-- EXCLUSIVE LEFT JOIN
 -- conjunto left - right
 SELECT * FROM CLIENTES 
 LEFT JOIN PEDIDOS 
@@ -37,15 +38,20 @@ WHERE PEDIDOS.CODIGOCLIENTE IS NULL;
 SELECT * FROM CLIENTES 
 RIGHT JOIN PEDIDOS 
 ON CLIENTES.CODIGOCLIENTE = PEDIDOS.CODIGOCLIENTE;
+-- EXCLUSIVE RIGHT JOIN
 -- conjunto right - left
 SELECT * FROM CLIENTES 
 RIGHT JOIN PEDIDOS 
 ON CLIENTES.CODIGOCLIENTE = PEDIDOS.CODIGOCLIENTE
 WHERE CLIENTES.CODIGOCLIENTE IS NULL;
 
--- Para el conjunto "union" o "diferencia simetrica"
+-- FULL JOIN / FULL OUTER JOIN
+-- Para el conjunto "union" se usa UNION
+-- junto con las consultas anteriores
+
+-- EXCLUSIVE FULL OUTER JOIN
+-- Para el conjunto "diferencia simetrica"
 -- se usa UNION junto con las consultas anteriores
--- o con FULL JOIN
 
 --------------------------------------------------------------------
 
