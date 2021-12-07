@@ -1,17 +1,14 @@
 #VISTAS
--- permite mayor privacidad de la información
--- optimiza las consutas a la BBDD
--- es un entorno de prueba seguro
+-- Privacidad de la información.
+-- Optimización en consutas a la BBDD.
+-- Ofrece entornos de pruebas.
 
--- las vistas reflejan la información real
+-- Las vistas reflejan la información real
 -- si cambia algo en una tabla, la vista lo nota
 
-create view art_deportes as
-select nombrearticulo, seccion, precio from productos
-where seccion='deportes';
-select * from art_deportes;
-drop view art_deportes;
+CREATE VIEW ARTICULOS_DEPORTES AS SELECT CODIGOARTICULO, NOMBREARTICULO, SECCION, PRECIO, FECHA FROM PRODUCTOS WHERE SECCION='DEPORTES';
+DROP VIEW IF EXISTS ARTICULOS_DEPORTES;
+SELECT CODIGOARTICULO, NOMBREARTICULO, SECCION, PRECIO, FECHA FROM PRODUCTOS WHERE SECCION='DEPORTES';
+SELECT * FROM ARTICULOS_DEPORTES;
 
-alter view art_deportes as
-select nombrearticulo, seccion, paisdeorigen from productos
-where paisdeorigen='españa';
+ALTER VIEW ARTICULOS_DEPORTES AS SELECT CODIGOARTICULO, NOMBREARTICULO, SECCION, PRECIO FROM PRODUCTOS WHERE SECCION='DEPORTES';

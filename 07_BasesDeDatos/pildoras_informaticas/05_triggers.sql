@@ -1,50 +1,125 @@
-#TRIGGERS
--- Es un objeto asociado a una tabla que genera una acción
--- cuando ocurre un evento (insertar, actualizar, eliminar)
+-- TRIGGERS
+-- Objeto asociado a una tabla que genera una acción
+-- cuando ocurre un evento (INSERT, UPDATE o DELETE)
+-- Se usan en tareas de mantenimiento y administracion de BBDD.
 
--- por ejemplo, guardar en otra tabla información acerca de
--- quien ha realizado los cambios, las fechas, etc.
+-- e.g. 
+-- Guardar en otra tabla información de fecha y usario que ha ejecutado el evento.
+-- Guardar como backup los UPDATE o DELETE hechos en una tabla.
+-- Alertar de datos errorneos. (poner aclaración aquí)
 
--- Los triggers se usan en tareas de mantenimiento y 
--- administracion de bases de datos
+-- Before(B) y After(A). 
+-- Insert(I), Update(U) y Delete(D)
+-- Esto es una convencion.
 
-create table regproductos (codigoarticulo varchar(25), 
-							nombrearticulo varchar(30), 
-                            precio int(4), 
-                            insertado datetime);
+-- FOR EACH ROW (por cada registro)
+-- FOR EACH STATEMENT (por cada bloque de registros)
+-- El NEW refiere a "despues de actualizar"
 
-#A de after, I de insert; for each statement(bloque)
-create trigger productos_AI 
-after insert on productos for each row
-insert into regproductos(codigoarticulo, nombrearticulo, precio, insertado)
-values(new.codigoarticulo, new.nombrearticulo, new.precio, now());
-drop trigger productos_AI;
-insert into productos(codigoarticulo,nombrearticulo,precio,paisdeorigen)
-values('AR75','pantalon',50,'españa');
-select * from productos where paisdeorigen='españa';
-select * from regproductos order by insertado desc;
+-- crear tabla reg_productos
 
+-- AFTER INSERT --> INSERT
+CREATE TABLE REG_PRODUCTOS_INSERT (
+	ID INT NOT NULL AUTO_INCREMENT, 
+    CODIGOARTICULO VARCHAR(25), 
+    FECHAINSERTADO DATETIME,
+    PRIMARY KEY (ID))
+	ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
+CREATE TRIGGER PRODUCTOS_AI AFTER INSERT ON PRODUCTOS FOR EACH ROW
+	INSERT INTO REG_PRODUCTOS_INSERT(CODIGOARTICULO, FECHAINSERTADO)
+	VALUES(NEW.CODIGOARTICULO, NOW());
+DROP TRIGGER IF EXISTS PRODUCTOS_AI;
+INSERT INTO PRODUCTOS(CODIGOARTICULO, NOMBREARTICULO, PRECIO, PAISDEORIGEN) VALUES('AR75','PANTALON',50,'ESPANA');
+DELETE FROM PRODUCTOS WHERE CODIGOARTICULO='AR75';
+DELETE FROM REG_PRODUCTOS_INSERT WHERE CODIGOARTICULO='AR75';
+SELECT * FROM PRODUCTOS ORDER BY CODIGOARTICULO DESC;
+SELECT * FROM REG_PRODUCTOS_INSERT;
 
-#--------------------------------------------------------------------------
-create table respaldo (old_codigoarticulo varchar(25),
-						old_precio int,
-                        new_codigoarticulo varchar(25),
-                        new_precio int,
-						usuario varchar(20),
-                        modificacion datetime);
-create trigger productos_BU
-before update on productos for each row 
-insert into respaldo(old_codigoarticulo, old_precio, 
-new_codigoarticulo, new_precio, usuario, modificacion)
-values(old.codigoarticulo, old.precio, new.codigoarticulo, new.precio,
-current_user(), now());
-update productos set precio=precio+20 where codigoarticulo='AR07';
-select * from productos;
-select * from respaldo order by modificacion desc;
-drop trigger productos_BU;
+-- BEFORE UPDATE --> INSERT
+CREATE TABLE REG_PRODUCTOS_UPDATE (
+	ID INT NOT NULL AUTO_INCREMENT,
+    NEW_CODIGOARTICULO VARCHAR(5),
+    NEW_SECCION VARCHAR(25),
+    NEW_NOMBREARTICULO VARCHAR(15),
+    NEW_PRECIO INT,
+    NEW_FECHA DATETIME,
+    NEW_IMPORTADO VARCHAR(15),
+    NEW_PAISDEORIGEN VARCHAR(15),
+    NEW_FOTO TEXT,
+    OLD_CODIGOARTICULO VARCHAR(5),
+    OLD_SECCION VARCHAR(25),
+    OLD_NOMBREARTICULO VARCHAR(15),
+    OLD_PRECIO INT,
+    OLD_FECHA DATETIME,
+    OLD_IMPORTADO VARCHAR(15),
+    OLD_PAISDEORIGEN VARCHAR(15),
+    OLD_FOTO TEXT,
+    FECHAUPDATE DATETIME,
+    USUARIO VARCHAR(20),
+    PRIMARY KEY (ID))
+	ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
+CREATE TRIGGER PRODUCTOS_BU BEFORE UPDATE ON PRODUCTOS FOR EACH ROW
+	INSERT INTO REG_PRODUCTOS_UPDATE(
+		NEW_CODIGOARTICULO, NEW_SECCION, NEW_NOMBREARTICULO, NEW_PRECIO,
+        NEW_FECHA, NEW_IMPORTADO, NEW_PAISDEORIGEN, NEW_FOTO,
+        OLD_CODIGOARTICULO, OLD_SECCION, OLD_NOMBREARTICULO, OLD_PRECIO,
+        OLD_FECHA, OLD_IMPORTADO, OLD_PAISDEORIGEN, OLD_FOTO,
+        FECHAUPDATE, USUARIO)
+	VALUES(
+		NEW.CODIGOARTICULO, NEW.SECCION, NEW.NOMBREARTICULO, NEW.PRECIO,
+        NEW.FECHA, NEW.IMPORTADO, NEW.PAISDEORIGEN, NEW.FOTO,
+        OLD.CODIGOARTICULO, OLD.SECCION, OLD.NOMBREARTICULO, OLD.PRECIO,
+        OLD.FECHA, OLD.IMPORTADO, OLD.PAISDEORIGEN, OLD.FOTO,
+        NOW(), CURRENT_USER());
+UPDATE PRODUCTOS SET PRECIO=PRECIO+20 WHERE CODIGOARTICULO='AR75';
+SELECT * FROM PRODUCTOS ORDER BY CODIGOARTICULO DESC;
+SELECT * FROM REG_PRODUCTOS_UPDATE;
 
-#create trigger productos_AD before delete on
+-- BEFORE DELETE --> INSERT
+CREATE TABLE REG_PRODUCTOS_DELETE (
+	ID INT NOT NULL AUTO_INCREMENT,
+    CODIGOARTICULO VARCHAR(5),
+    SECCION VARCHAR(25),
+    NOMBREARTICULO VARCHAR(15),
+    PRECIO INT,
+    FECHA DATETIME,
+    IMPORTADO VARCHAR(15),
+    PAISDEORIGEN VARCHAR(15),
+    FOTO TEXT,
+    FECHADELETE DATETIME,
+    USUARIO VARCHAR(20),
+    PRIMARY KEY (ID))
+	ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
+CREATE TRIGGER PRODUCTOS_BD BEFORE DELETE ON PRODUCTOS FOR EACH ROW
+	INSERT INTO REG_PRODUCTOS_DELETE(
+		CODIGOARTICULO, SECCION, NOMBREARTICULO, PRECIO,
+        FECHA, IMPORTADO, PAISDEORIGEN, FOTO,
+        FECHADELETE, USUARIO)
+	VALUES(
+        OLD.CODIGOARTICULO, OLD.SECCION, OLD.NOMBREARTICULO, OLD.PRECIO,
+        OLD.FECHA, OLD.IMPORTADO, OLD.PAISDEORIGEN, OLD.FOTO,
+        NOW(), CURRENT_USER());
+DELETE FROM PRODUCTOS WHERE CODIGOARTICULO='AR75';
+SELECT * FROM PRODUCTOS ORDER BY CODIGOARTICULO DESC;
+SELECT * FROM REG_PRODUCTOS_DELETE;
 
-#para modificar un trigger se elimina y se vuelve a crear ó
-#drop trigger if exists NOMBRE_TRIGGER; create trigger .......alter
-#así se hace todo en una sola linea
+-- para modificar un trigger se elimina y se vuelve a crear
+
+-- TRIGGERS CONDICIONALES
+DELIMITER //
+	CREATE TRIGGER REVISA_PRECIO_BU BEFORE UPDATE ON PRODUCTOS FOR EACH ROW
+	BEGIN
+	IF(NEW.PRECIO<0 OR NEW.PRECIO>1000) THEN 
+		SET NEW.PRECIO=OLD.PRECIO;
+	ELSEIF(NEW.PRECIO > 100) THEN
+		SET NEW.PRECIO=100;
+	END IF;
+	END//
+DELIMITER ;
+DROP TRIGGER REVISA_PRECIO_BU;
+UPDATE PRODUCTOS SET PRECIO=1010 WHERE CODIGOARTICULO='AR01';
+UPDATE PRODUCTOS SET PRECIO=110 WHERE CODIGOARTICULO='AR01';
+UPDATE PRODUCTOS SET PRECIO=9.99 WHERE CODIGOARTICULO='AR01';
+UPDATE PRODUCTOS SET PRECIO=-10 WHERE CODIGOARTICULO='AR01';
+SELECT * FROM PRODUCTOS ORDER BY CODIGOARTICULO ASC;
+CALL UPDATEPRODUCT(6.63,'AR01');

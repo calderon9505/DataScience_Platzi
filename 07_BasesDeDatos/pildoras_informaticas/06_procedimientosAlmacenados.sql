@@ -1,47 +1,26 @@
 -- PROCEDIMIENETOS ALMACENADOS
--- almacena un procedimiento(consulta , ....) que se usa bastante
--- se llama al procedimiento con CALL
 
-create procedure muestraclientes()
-select * from clientes where poblacion='madrid';
-select * from clientes;
+CREATE PROCEDURE CLIENTESMADRID() SELECT * FROM CLIENTES WHERE POBLACION='MADRID';
+DROP PROCEDURE CLIENTESMADRID;
+CALL CLIENTESMADRID();
 
-call muestraclientes();
+CREATE PROCEDURE UPDATEPRODUCT(PRECIONUEVO DOUBLE, CODIGO VARCHAR(4))
+	UPDATE PRODUCTOS SET PRECIO = PRECIONUEVO WHERE CODIGOARTICULO=CODIGO;
+CALL UPDATEPRODUCT(6.63,'AR01');
+SELECT PRECIO FROM PRODUCTOS WHERE CODIGOARTICULO='AR01';
 
-#este proc. tambien lo uso en java video 209
-create procedure actualizaproductos(precionuevo double, codigo varchar(4))
-update productos set precio = precionuevo where codigoarticulo=codigo;
-call actualizaproductos(60,'AR22');
-select * from productos;
-drop procedure actualizaproductos;
 
-delimiter $$pedidos
-create procedure calculaedad(ano_nac int)
-	begin
-		declare ano_act int default 2019;
-        declare edad int;
-        set edad=ano_act-ano_nac;
-        select edad;
-    end;$$
-delimiter ;
+-- delimitador de bloque $$
+DELIMITER $$
+	CREATE PROCEDURE CALCULA_EDAD(ANO_NACIMIENTO INT)
+	BEGIN
+	DECLARE ANO_ACTUAL INT DEFAULT YEAR(NOW());
+	DECLARE EDAD INT;
+	SET EDAD=ANO_ACTUAL-ANO_NACIMIENTO;
+	SELECT EDAD; 			-- equivale al return
+	END$$ 					-- fin del bloque
+DELIMITER ; 				
+-- reseteo del delimitador de bloque $$
+DROP PROCEDURE CALCULA_EDAD;
+CALL CALCULA_EDAD(1995);
 
-call calculaedad(2018); #pasa algo raro
-
-#tambien se pueden crear procedimientos 
-#almacenados dentro de triggers
-
-delimiter $$
-create trigger revisa_precio_BU 
-before update on productos for each row
-	begin
-		if(new.precio<0 or new.precio>100) then 
-			set new.precio=old.precio;
-		end if;
-    end;$$
-delimiter ;
-drop trigger revisa_precio_BU;
-
-#tuve que borrar el trigger anterior por que no permite
-#dos triggers para la misma tabla
-update productos set precio=8000 where codigoarticulo='AR01';
-select * from productos;
