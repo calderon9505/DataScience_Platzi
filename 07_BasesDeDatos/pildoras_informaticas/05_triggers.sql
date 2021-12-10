@@ -6,7 +6,7 @@
 -- e.g. 
 -- Guardar en otra tabla información de fecha y usario que ha ejecutado el evento.
 -- Guardar como backup los UPDATE o DELETE hechos en una tabla.
--- Alertar de datos errorneos. (poner aclaración aquí)
+-- Alertar de datos erroneos. (poner aclaración aquí)
 
 -- Before(B) y After(A). 
 -- Insert(I), Update(U) y Delete(D)
