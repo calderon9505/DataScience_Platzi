@@ -4,7 +4,6 @@ version ```SELECT version();```
 
 ## Comandos de navegación y consulta de información
 
-
 listar todos los comandos ```\?```
 
 comandos SQL ```\h```, ```\h ALTER```
@@ -19,10 +18,11 @@ listar los esquemas ```\dn```
 
 describir tabla ```\d <nombre_tabla>```
 
+listar roles ```\dg```
+
 ## Comandos de inspección y ejecución
 
 ejecutar consulta anterior ```\g```
-
 
 ejecutar comandos desde archivo ```\i <nombre_archivo>```
 
