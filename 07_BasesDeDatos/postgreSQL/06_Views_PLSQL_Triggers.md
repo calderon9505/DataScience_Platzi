@@ -89,6 +89,22 @@ $$
 ```
 
 ```
+CREATE OR REPLACE FUNCTION miPrimerPL() 
+	RETURNS TRIGGER 
+	LANGUAGE'plpgsql'
+	AS
+$$
+DECLARE
+	contador integer := 0;
+BEGIN
+	SELECT count(*) INTO contador FROM pasajeros;
+	INSERT INTO conteo_pasajeros(total, tiempo) 
+		VALUES (contador, current_time);
+END
+$$
+```
+
+```
 CREATE TRIGGER mitrigger
 AFTER INSERT
 ON pasajeros
