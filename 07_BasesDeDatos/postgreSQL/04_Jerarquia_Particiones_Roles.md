@@ -16,7 +16,7 @@
 
 * **Misma esctructura lógica**: Funcionan igual las consultas
 
-```
+```sql
 CREATE TABLE bitacora_viajes_2010_01
 PARTITION OF bitacora_viajes
 FOR VALUES FROM ('2010-01-01') TO ('2010-02-01');
@@ -24,7 +24,7 @@ FOR VALUES FROM ('2010-01-01') TO ('2010-02-01');
 
 # Roles
 
-```
+```sql
 CREATE ROLE usuario_consulta;
 ALTER ROLE usuario_consulta WITH LOGIN SUPERUSER;
 ALTER ROLE usuario_consulta WITH PASSWORD 'etc123';

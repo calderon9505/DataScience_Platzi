@@ -4,7 +4,7 @@ Las consultas con conexiones remotas se deben encapsular para no tener que compa
 
 ```CREATE EXTENSION dblink;```
 
-```
+``` sql
 SELECT * FROM pasajeros
 FULL JOIN
 dblink ('dbname=remota 
@@ -25,7 +25,7 @@ USING (id);
 
 Desactivar el autocommit.
 
-```
+``` sql
 BEGIN;
     <sql_sentence>;
     <sql_sentence>;

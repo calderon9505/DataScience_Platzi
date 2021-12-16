@@ -4,11 +4,11 @@
 
 * Vista materializada. La consulta se realiza una vez y queda en memoria, las demás consultas acceden a esa memoria.
 
-```
+```sql
 SELECT * FROM <nombre_vista>
 ```
 
-```
+```sql
 REFRESH MATERIALIZED VIEW <nombre_vista>
 ```
 
@@ -16,7 +16,7 @@ REFRESH MATERIALIZED VIEW <nombre_vista>
 
 PL/pgSQL is a loadable procedural language for the PostgreSQL database system. Desarrollar código directamente sobre la base de datos. Se compone de: nombre de funcion, declaraciones y bloques de código.
 
-```
+```sql
 [<label>]
 [DECLARE
     declarations]
@@ -25,7 +25,7 @@ BEGIN
 END [label]
 ```
 
-```
+```sql
 DO $$
 DECLARE
 	rec record;
@@ -40,7 +40,7 @@ END
 $$
 ```
 
-```
+```sql
 CREATE OR REPLACE FUNCTION miPrimerPL() 
 	RETURNS integer AS
 $$
@@ -67,7 +67,7 @@ LANGUAGE PLPGSQL;
 
 Se crea la tabla "conteo_pasajeros" con id, total y tiempo.
 
-```
+```sql
 CREATE OR REPLACE FUNCTION miPrimerPL() 
 	RETURNS TRIGGER 
 	LANGUAGE 'plpgsql'
@@ -88,7 +88,7 @@ END
 $$
 ```
 
-```
+```sql
 CREATE OR REPLACE FUNCTION miPrimerPL() 
 	RETURNS TRIGGER 
 	LANGUAGE'plpgsql'
@@ -104,7 +104,7 @@ END
 $$
 ```
 
-```
+```sql
 CREATE TRIGGER mitrigger
 AFTER INSERT
 ON pasajeros
