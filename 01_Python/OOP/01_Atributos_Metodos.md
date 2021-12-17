@@ -69,5 +69,3 @@ los métodos de clase NO pueden acceder a los atributos de la instancia, pero s�
 NO aceptan como parámetro ni la instancia ni la clase, por lo tanto No puede modificar sus estados. Se podría hacer los mismo con un método de instancia, pero un método estático resulta util para indicar que no se modificará el estado de la instancia ni de la clase y así evitar malentendidos.
 
 Se puede acceder a este método desde el objeto y desde la clase.
-
-Los métodos estáticos

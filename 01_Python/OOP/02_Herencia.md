@@ -62,9 +62,14 @@ class Abeja(Animal):
 ```
 
 ```py
-mi_perro = Perro('mamífero', 10)
+mi_perro = Perro('mamífero', 7, 10)
 mi_vaca = Vaca('mamífero', 23)
 mi_abeja = Abeja('insecto', 1)
+
+mi_perro.describeme()
+print(mi_perro.especie)
+print(mi_perro.edad)
+print(mi_perro.dueño)
 ```
 
 La función ``super()`` permite acceder a los métodos de la clase padre desde una de las clases hijas.
