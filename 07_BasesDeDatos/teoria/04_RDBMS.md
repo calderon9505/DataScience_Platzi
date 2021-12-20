@@ -8,4 +8,5 @@ Hay dos maneras de acceder a manejadores de bases de datos:
 https://dev.mysql.com/downloads/windows/installer/5.6.html
 
 User: root
+
 Password: 2705

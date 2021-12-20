@@ -132,7 +132,8 @@ AS $$
 DECLARE
 	contador integer := 0;
 BEGIN
-	SELECT count(*) INTO contador FROM tabla_prueba;
+	-- SELECT count(*) INTO contador FROM tabla_prueba;
+	contador := count(*) FROM tabla_prueba;
 	INSERT INTO tabla_prueba2(columna1, contador, tiempo) 
 		VALUES (NEW.columna1, contador, now());
 	RETURN NEW;
