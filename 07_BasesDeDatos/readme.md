@@ -1,0 +1,1 @@
+[The SQL Tutorial for Data Analysis](https://mode.com/sql-tutorial/introduction-to-sql/)

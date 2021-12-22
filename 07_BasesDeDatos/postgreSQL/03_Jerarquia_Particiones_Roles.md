@@ -16,6 +16,8 @@
 
 * **Misma esctructura lógica**: Funcionan igual las consultas
 
+Con las particiones no se puede tener un `id` que funcione como **primary key** como en cualquier otra tabla. En este caso el índice debe ser el campo por el cual se particiona.
+
 ```sql
 CREATE TABLE bitacora_viajes_2010_01
 PARTITION OF bitacora_viajes
