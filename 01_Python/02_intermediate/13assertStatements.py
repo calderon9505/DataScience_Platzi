@@ -15,7 +15,7 @@
 # detecting it with an assert statement.
 
 def divisors(num):
-    assert num > 0, 'Only natural numbers'
+    assert num > 0, f'{num} is not a natural number'
     return [i for i in range (1, num+1) if num%i == 0]
 
 

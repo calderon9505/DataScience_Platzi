@@ -1,11 +1,4 @@
 def run():
-    mi_dicc = {
-        'llave1': 1,
-        'llave2': 2,
-        'llave3': 3,
-    }
-    # print(mi_dicc)
-    # print(mi_dicc['llave1'])
 
     poblacion_paises = {
         'Argentina': 44938_712,
@@ -23,6 +16,18 @@ def run():
     for pais, poblacion in poblacion_paises.items():
         print(pais, "\t", type(pais))
         print(poblacion, "\t", type(poblacion))
+    
+    # 'Colombia' in poblacion_paises
+    # >>> True
+    
+    # poblacion_paises.get('Chile', 0)
+    # Busca a Chile y retorna el valor
+    # Si no existe devuelve cero
+
+    # poblacion_paises['Chile'] = 16_123_456
+    # inseta nuevo clave-valor
+
+    # del poblacion_paises['Chile']
 
 
 if __name__ == '__main__':
