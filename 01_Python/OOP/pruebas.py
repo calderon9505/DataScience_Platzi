@@ -1,3 +1,4 @@
+'''
 class Animal:
     def __init__(self, especie, edad):
         self.especie = especie
@@ -48,7 +49,11 @@ print(mi_perro.especie)
 print(mi_perro.edad)
 print(mi_perro.dueño)
 
+'''
+
 ##############################################
+
+'''
 
 class Clase:
     atr_cla_pub = "Hola"
@@ -84,3 +89,47 @@ print(dir(mi_clase))
 
 mi_clase._Clase__atr_cla_pri
 mi_clase._Clase__metodo_privado()
+
+'''
+
+##############################################
+
+'''
+class Millas:
+	def __init__(self):
+		self._distancia = 0
+
+	def obtener_distancia(self):
+		print("Llamada al método getter")
+		return self._distancia
+
+	def definir_distancia(self, recorrido):
+		print("Llamada al método setter")
+		self._distancia = recorrido
+
+	def eliminar_distancia(self):
+		del self._distancia
+
+	distancia = property(obtener_distancia, definir_distancia, eliminar_distancia)
+
+# Creamos un nuevo objeto 
+avion = Millas()
+
+# al correr la siguiente linea, es como si creara un nuevo atributo al objeto
+# avion._distancia = 200
+# entonces distancia != _distancia
+
+# Indicamos la distancia
+avion.distancia = 200
+
+
+print(id(avion.distancia))
+print(id(avion._distancia))
+
+print(dir(avion))
+print(dir(Millas))
+
+print(avion.distancia)
+'''
+
+##############################################

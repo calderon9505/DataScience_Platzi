@@ -58,6 +58,8 @@ los métodos de instancia pueden acceder y modificar los atributos del objeto, p
 
 * **Métodos de clase**. ``@classmethod``
 
+Permiten crear métodos propios de la clase, por lo que pueden ser llamados desde la clase sin necesidad de instancialos en un objeto.
+
 A diferencia de los métodos de instancia, los métodos de clase reciben como argumento ``cls``, que hace referencia a la clase. Por lo tanto, pueden acceder a la clase pero NO a la instancia.
 
 Se pueden llamar sobre la clase: ``Clase.metodoDeClase()`` o sobre el objeto: ``mi_clase.metodoDeClase()``

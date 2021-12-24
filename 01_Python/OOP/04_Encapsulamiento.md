@@ -4,7 +4,11 @@ Es el ocultamiento de los estados internos de una clase al exterior. Hace que lo
 
 > Python por defecto no oculta los atributos y métodos de una clase al exterior.
 
+Los atributos y métodos que inician con ``_`` indica que una variable está destinada a uso interno. El interprete de Python no lo aplica como privado, sino que es una **sugerencia** para el programador.
+
 Los atributos y métodos que inician con ``__`` son privados e inaccesibles desde el exterior. Los atributos públicos son accesibles así estén definidos dentro de un método privado.
+
+> Pero... la realidad es que en Python no existen variables netamente privadas, siempre son accesibles de una u otra forma.
 
 ```py
 class Clase:
