@@ -9,7 +9,7 @@ De esta forma un decorador añade capacidades a una función sin modificarla.
 
 [Decoradores en Python. codigofacilito](https://www.youtube.com/watch?v=DlGPvq9r6Q4&ab_channel=codigofacilito)
 
-# @Property
+# @property
 
 Hace que un método actúe como atributo.
 
