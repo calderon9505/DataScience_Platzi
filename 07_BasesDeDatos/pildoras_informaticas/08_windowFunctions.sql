@@ -22,6 +22,18 @@ SELECT NOMBREARTICULO, SECCION, PRECIO,
     ROW_NUMBER() OVER(PARTITION BY SECCION ORDER BY PRECIO) AS ROW_NUM2
 	FROM PRODUCTOS ORDER BY SECCION, PRECIO;
 
+SELECT
+	peliculas.pelicula_id AS id, 
+	titulo, 
+	COUNT(*) AS numero_rentas,
+	DENSE_RANK() OVER(ORDER BY COUNT(*) DESC) AS Ranking
+FROM rentas
+JOIN inventarios ON inventarios.inventario_id = rentas.inventario_id
+JOIN peliculas ON peliculas.pelicula_id = inventarios.pelicula_id
+GROUP BY peliculas.pelicula_id
+ORDER BY numero_rentas DESC
+LIMIT 10;
+
 -- En las Window Functions no se puede hacer WHERE ni HAVING, se debe hacer una subconsulta
 SELECT * 
 	FROM (SELECT NOMBREARTICULO, SECCION, PRECIO, 

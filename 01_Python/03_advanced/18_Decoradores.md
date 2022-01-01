@@ -9,6 +9,45 @@ De esta forma un decorador añade capacidades a una función sin modificarla.
 
 [Decoradores en Python. codigofacilito](https://www.youtube.com/watch?v=DlGPvq9r6Q4&ab_channel=codigofacilito)
 
+```py
+def mayus(func):
+    def wrapper(text):
+        return func(text).upper()
+    return wrapper
+
+@mayus
+def myFunc(name):
+    return f'{name}, recibiste un mensaje'
+
+>>> myFunc('sebastian')
+'SEBASTIAN, RECIBISTE UN MENSAJE'
+```
+
+```py
+from datetime import datetime
+
+def execution_time(func):
+    def wrapper(*args, **kwargs):
+        initial_time = datetime.now()
+        func(*args, **kwargs)
+        final_time = datetime.now()
+        time_elapsed = final_time - initial_time
+        print(f'Pasaron {time_elapsed.total_seconds()} segundos')
+    return wrapper
+
+@execution_time
+def random_func():
+    for _ in range(1, 10_000_000):
+        pass
+
+@execution_time
+def suma(a,b):
+    return a+b
+
+random_func()
+suma(3,5)
+```
+
 # @property
 
 Hace que un método actúe como atributo.

@@ -1,6 +1,6 @@
 # Common Table Expressions CTE
 
-La cláusula cable `WITH` provee una forma de escribir declaraciones auxiliares para usarse en consultas largas. Proveen una forma de desestructurar largos *queries* que a su vez pueden contener sub-queries o anidaciones. Estas declaraciones, comunmente conocidas como CTE, pueden ser consideradas como la definición de tablas temporales que existen solo para una consulta.
+La cláusula `WITH` provee una forma de escribir declaraciones auxiliares para usarse en consultas largas. Proveen una forma de desestructurar largos *queries* que a su vez pueden contener sub-queries o anidaciones. Estas declaraciones, comunmente conocidas como CTE, pueden ser consideradas como la definición de tablas temporales que existen solo para una consulta.
 
 Cada declaración auxiliar en un `WITH` puede ser un ``SELECT``, ``INSERT``, ``UPDATE`` o ``DELETE``; y la cláusula ``WITH`` en sí misma se adjunta a una declaración principal que puede ser tambien ``SELECT``, ``INSERT``, ``UPDATE`` o ``DELETE``.
 
@@ -25,7 +25,7 @@ WHERE region IN (SELECT region FROM top_regions)
 GROUP BY region, product;
 ```
 
-En este caso, de declaran las tablas temporales ``regional_sales`` y ``top_regions``, donde la salida de `regional_sales` es usada en `top_regions`, y la salida de `top_regions` es usada en la consulta principal.
+En este caso, se declaran las tablas temporales ``regional_sales`` y ``top_regions``, donde la salida de `regional_sales` es usada en `top_regions`, y la salida de `top_regions` es usada en la consulta principal.
 
 Este ejemplo podría haberse escrito sin ``WITH``, pero habríamos necesitado dos niveles de sub-SELECTs anidados. Es un poco más fácil seguir este camino. Además de ser más eficiente.
 

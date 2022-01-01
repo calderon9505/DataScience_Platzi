@@ -6,15 +6,16 @@ import this
 # https://www.python.org/dev/peps/pep-0008/  IMPORTANTE!!! leerlo!!!
 
 # Virtual Enviroment
-#Un módulo es codigo de otros progrmadores (librerias)(los import)
+#Un módulo es codigo de otros programadores (librerias)(los import)
 #entorno virtual: tener python aislado para un proyecto que tiene sus propios módulos,
 #está pensado para funcionar únicamente con ese proyecto
 #en un directorio específico se define un venv con una version particular de python (no la global)
 "sudo apt install python3.8-venv"       # libreria para crear venv (necesaria en wsl)
 "python3 -m venv venv"                  # creacion entorno (-m module). (se crea carpeta venv)
+"python -m venv venv"                   # creacion de venv en windows
 #en la carpeta bin está el comando que activa el venv (en windows es "Script")
 "source venv/bin/activate"              # crear alias y llamar activate (linux)
-".\venv\Scripts\activate"               #alias activate=.\venv\Scripts\activate (windows)
+".\venv\Scripts\activate"               # alias activate=.\venv\Scripts\activate (windows)
 "deactivate"
 
 # Package Installer for Python PIP
