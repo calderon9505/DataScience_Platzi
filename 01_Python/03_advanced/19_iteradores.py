@@ -17,13 +17,11 @@ from time import sleep
 
 class FiboIter():
 
-    def __init__(self, max_element: int = None, max_num: int = None ) -> None:
+    def __init__(self, max_element: int = None) -> None:
         """
         max_element: maximum number of elements in the sequence.
-        max_num: maximum number of the output.
         """
         self.max_element = max_element
-        self.max_num = max_num
 
     def __iter__(self):
         self.n1 = 0
@@ -32,11 +30,7 @@ class FiboIter():
         return self
 
     def __next__(self):
-        if (
-            (not self.max_element and not self.max_num) 
-            or ((self.counter < self.max_element) and (self.n2 < self.max_num))
-            ):
-
+        if not self.max_element or self.counter < self.max_element:
             if self.counter == 0:
                 self.counter += 1
                 return self.n1
@@ -52,7 +46,7 @@ class FiboIter():
             raise StopIteration
 
 if __name__ == '__main__':
-    fibonacci = FiboIter(max_num= 50)
+    fibonacci = FiboIter(10)
     for element in fibonacci:
         print(element)
         sleep(0.1)
