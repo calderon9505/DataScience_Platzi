@@ -28,7 +28,7 @@ def fiboGen(max_num: int = None, max_element: int = None) -> int:
         counter += 1
 
 if __name__ == '__main__':
-    # Tengo que instanciar la función (como si fuera una clase)
+    # Se instancia la función (como si fuera una clase)
     fibonacci = fiboGen(max_num=10)
     for element in fibonacci:
         print(element)

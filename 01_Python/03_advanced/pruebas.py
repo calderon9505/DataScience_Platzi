@@ -20,3 +20,7 @@ def suma(a,b):
 
 random_func()
 suma(3,5)
+
+# eliminando repetidos
+lista = [1,1,2,2,4]
+print(list(set(lista)))
