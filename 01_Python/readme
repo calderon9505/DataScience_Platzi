@@ -1,5 +1,6 @@
 https://www.codewars.com/dashboard
 https://ellibrodepython.com/
+https://realpython.com/
 
 Permisos de ejecución en la terminal de VSCode:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
