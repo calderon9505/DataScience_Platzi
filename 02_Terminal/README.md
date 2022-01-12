@@ -14,8 +14,6 @@
 ## Instalacion VSCode
 
 - Activar sincronización de extensiones
-- wnd + shift + p  --> format document (autopep8)
-- wnd + shift + p (F1) --> sort imports
 - export as pdf, python script y HTML.
 
 ### extensiones
@@ -26,6 +24,7 @@
 - Remote Development
 - Visual Studio IntelliCode
 - Material Icon
+- Jupyter
 
 ## Instalación Anaconda
 

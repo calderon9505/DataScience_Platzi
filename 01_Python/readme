@@ -8,4 +8,11 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 Para ejecutar archivos Python con un entorno virtual:
 ctrl + shift + p
 Python: Select interpreter
-Buscar la ruta del ejecutable python.exe del venv
+Seleccionar archivo "python.exe" dentro de venv 
+
+trucos para usar en VSCode
+- "ctrl + alt + r" crear shortcut para correr python
+- "ctrl + shift + p"  es igual que "F1"
+
+- F1 --> format document (autopep8)
+- F1 --> sort imports

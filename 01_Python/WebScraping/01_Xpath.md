@@ -8,6 +8,8 @@
 
 [Extension de Chrome para xPath](https://chrome.google.com/webstore/detail/xpath-finder/ihnknokegkbpmofmafnkoadfjkhlogph)
 
+[SelectorGadget. Extension de Chrome](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=en)
+
 [HTML tree generator Chrome extension](https://chrome.google.com/webstore/detail/html-tree-generator/dlbbmhhaadfnbbdnjalilhdakfmiffeg)
 
 [Tutorial de Youtube](https://www.youtube.com/watch?v=0O1SyTh8Zxo&ab_channel=LeonardoKuffo)
@@ -30,6 +32,8 @@ Tipos de nodos:
 * **Whitespace**: Nodo sólo con caracteres de espacio en blanco y sin espacio en blanco significativo. Los caracteres de espacio en blanco son ``#x20``, ``#x9``, ``#xD`` o ``#xA``.
 * **ProcessingInstruction**: Una instrucción de procesamiento, como ``<?pi test?>``. 
 * **Comment**: Un comentario, como ``<!-- my comment -->``.
+
+En el navegador se puede interactuar con las consultas xpath al presionar F12 -> Elements y presionar ctrl+f
 
 ## Expresiones
 
@@ -62,10 +66,16 @@ element | `//book[price<30]` | filtrado por **element** (node hijo)
 not | `//span[not(@class)]` | negación
 
 
-para ver el texto en la consola del navegador chrome
+para ver los valores o el texto en la consola del navegador chrome
+
 ```xpath
-$x('//span[@class="text"]/text()').map(x => x.wholeText)
+$x('//article[@class="product_pod"]/h3/a/@title').map(x => x.value)
 ```
+
+```xpath
+$x('//span[@class="text"]/text()').map(x => x.wholeText.trim())
+```
+
 para filtrar una consulta ya filtrada
 ```xpath
 $x(' (//span[@class="text"]) [4]')
