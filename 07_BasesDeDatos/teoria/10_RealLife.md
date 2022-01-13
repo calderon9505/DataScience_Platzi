@@ -33,6 +33,13 @@ Entre las desventajas de un Data Warehouse están:
 DW no es un producto que pueda ser comprado en el mercado, sino más bien un concepto que debe ser construido. DW es una combinación de conceptos y tecnología que cambian significativamente la manera en que es entregada la información a la gente de negocios. El objetivo principal es satisfacer los requerimientos de información internos de la empresa para una mejor gestión, con eficiencia y facilidad de acceso.
 
 
+# Data lake
+
+Es un sistema o repositorio de datos almacenados en su formato natural (crudos). Puede incluir datos estructurados (filas y columnas), semi-estructurados (csv, logs, xmlo, json), no estructurados (emails, documents, pdfs) y datos binarios (imagenes, audio, video).
+
+> Poorly managed data lakes have been facetiously called data swamps.
+
+
 # Data mining
 
 > Data mining, consiste en torturar los datos hasta que confiesen

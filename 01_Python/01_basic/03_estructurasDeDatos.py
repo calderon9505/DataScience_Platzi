@@ -27,7 +27,7 @@ c = (5)                             # es un entero
 
 # Puedo reasignar la tupla
 # mi_tupla = (1, 2, 3, 4, 'chao')
-# No esto alteralo el valor sino que 
+# No estoy alterando el valor, sino que 
 # esto hace que apunte a una dirección de memoria diferente
 
 

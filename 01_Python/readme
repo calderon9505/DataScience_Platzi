@@ -5,6 +5,9 @@ https://realpython.com/
 Permisos de ejecución en la terminal de VSCode:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
+Para crear entorno virtual
+(Windows, Cmder) py -m venv venv
+
 Para ejecutar archivos Python con un entorno virtual:
 ctrl + shift + p
 Python: Select interpreter
