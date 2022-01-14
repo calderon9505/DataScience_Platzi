@@ -1,6 +1,8 @@
 import datetime
 import pytz
 
+# https://www.w3schools.com/python/python_datetime.asp
+
 print('Fecha y hora:', datetime.datetime.now())
 print('Fecha:', datetime.date.today())
 print('Mes:', datetime.date.today().month)

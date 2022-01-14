@@ -7,6 +7,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
 Para crear entorno virtual
 (Windows, Cmder) py -m venv venv
+.\venv\Scripts\activate
 
 Para ejecutar archivos Python con un entorno virtual:
 ctrl + shift + p
