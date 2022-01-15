@@ -3,6 +3,9 @@ import requests
 import os
 import datetime
 
+# Para correr este código desde VSCode se debe ir en la terminal
+# a la dirección del archivo y correrlo estando parados allí.
+
 HOME_URL = 'https://www.larepublica.co/'
 
 # XPATH_LINKS = '//h2[@class]/a[contains(@href,"www.larepublica.co")]/@href'
