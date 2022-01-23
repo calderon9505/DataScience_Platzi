@@ -1,0 +1,21 @@
+news_sites:
+  eluniversal:
+    url: http://www.eluniversal.com.co
+    queries:
+      homepage_article_links: 'article[class*="article element"] .info > a[href]'
+      article_title: '.titulo-interna span'
+      article_body: '.paragraph p'
+  elpais:
+    url: https://elpais.com/america/
+    queries:
+      homepage_article_links: 'h2[class="c_t"] a'
+      article_title: 'h1.a_t'
+      article_body: 'div.a_c p'
+
+# //article[contains(@class,'article element')]//div[@class='info']//a[@href]/@href
+# article[class*="article element"] .info a[href]
+
+# //h2[@class='c_t ']/a/@href
+# h2[class='c_t '] a
+# Al hacer bs4.BeautifulSoup(response.text, 'html.parser') se elimina el espacio 
+# al final del atributo class
