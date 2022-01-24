@@ -1,12 +1,12 @@
 news_sites:
   eluniversal:
-    url: http://www.eluniversal.com.co
+    url: https://www.eluniversal.com.co
     queries:
       homepage_article_links: 'article[class*="article element"] .info > a[href]'
       article_title: '.titulo-interna span'
       article_body: '.paragraph p'
   elpais:
-    url: https://elpais.com/america/
+    url: https://elpais.com
     queries:
       homepage_article_links: 'h2[class="c_t"] a'
       article_title: 'h1.a_t'

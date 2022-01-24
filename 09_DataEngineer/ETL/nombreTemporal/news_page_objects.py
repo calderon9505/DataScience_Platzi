@@ -1,4 +1,3 @@
-from pyparsing import nested_expr
 import requests
 import bs4
 
@@ -6,31 +5,31 @@ from common import config
 
 class NewsPage:
 
-    def __init__(self, news_site_uid) -> None:
-        self._config = config()['news_sites'][news_site_uid]
-        self._queries = self._config['queries']
+    def __init__(self, news_site_uid, url) -> None:
+        self._config = config()['news_sites'][news_site_uid] # url y querys
+        self._queries = self._config['queries'] # esto no es necesario. arriba.
         self._html = None
 
-        self._visit(self._config['url'])
-
-    def _select(self, query_string):
-        nodes = self._html.select(query_string)
-
-        if not nodes:
-            print('_select ha retornado None')
-            return None
-
-        return nodes
+        self._visit(url)
 
     def _visit(self, url):
         response = requests.get(url)
         response.raise_for_status()
         self._html = bs4.BeautifulSoup(response.text, 'html.parser')
 
+    def _select(self, query_string):
+        nodes = self._html.select(query_string)
+
+        if not nodes:
+            # print('_select ha retornado None')
+            return None
+
+        return nodes
+
 class HomePage(NewsPage):
 
-    def __init__(self, news_site_uid) -> None:
-        super().__init__(news_site_uid)
+    def __init__(self, news_site_uid, url) -> None:
+        super().__init__(news_site_uid, url)
 
     @property
     def article_links(self):
@@ -39,20 +38,21 @@ class HomePage(NewsPage):
             if link and link.has_attr('href'):
                 link_list.append(link)
 
-        return set(link['href'] for link in link_list)
+        # Algunos enlaces tienen espacios raros al final y al comienzo
+        return set(link['href'].strip() for link in link_list[:10])
 
     
 class ArticlePage(NewsPage):
 
-    def __init__(self, news_site_uid) -> None:
-        super().__init__(news_site_uid)
-    
-    @property
-    def body(self):
-        result = self._select(self._queries['article_body'])
-        return result[0].text if len(result) else ''
+    def __init__(self, news_site_uid, url) -> None:
+        super().__init__(news_site_uid, url)
 
     @property
     def title(self):
         result = self._select(self._queries['article_title'])
-        return result[0].text if len(result) else ''
+        return None if result is None else result[0].text
+    
+    @property
+    def body(self):
+        result = self._select(self._queries['article_body'])
+        return None if result is None else result[0].text
