@@ -9,11 +9,14 @@ class NewsPage:
         self._config = config()['news_sites'][news_site_uid] # url y querys
         self._queries = self._config['queries'] # esto no es necesario. arriba.
         self._html = None
+        self._url = url
 
         self._visit(url)
 
     def _visit(self, url):
         response = requests.get(url)
+        if response.encoding != 'utf-8':
+            response.encoding = response.apparent_encoding # cosa rarísima
         response.raise_for_status()
         self._html = bs4.BeautifulSoup(response.text, 'html.parser')
 
@@ -25,6 +28,9 @@ class NewsPage:
             return None
 
         return nodes
+    
+    def _print_html(self):
+        print(self._html)
 
 class HomePage(NewsPage):
 
@@ -39,7 +45,7 @@ class HomePage(NewsPage):
                 link_list.append(link)
 
         # Algunos enlaces tienen espacios raros al final y al comienzo
-        return set(link['href'].strip() for link in link_list[:10])
+        return set(link['href'].strip() for link in link_list)
 
     
 class ArticlePage(NewsPage):
@@ -56,3 +62,7 @@ class ArticlePage(NewsPage):
     def body(self):
         result = self._select(self._queries['article_body'])
         return None if result is None else result[0].text
+    
+    @property
+    def url(self):
+        return self._url

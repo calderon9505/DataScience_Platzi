@@ -3,7 +3,6 @@ import argparse
 # permite agregar los tipos de variables que va a recibir
 
 import logging
-from msilib.schema import Error
 # Permite enviar mensajes por consola de manera automatica 
 # asignandole un level de importancia a cada tipo de mensaje
 
@@ -46,6 +45,7 @@ def _news_scraper(news_site_uid):
         if article:
             articles.append(article)
             # print(article.title)
+            # break # for tests
     
     print('Cantidad de articulos scrapeados: ', len(articles))
 
