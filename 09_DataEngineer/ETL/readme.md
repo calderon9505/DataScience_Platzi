@@ -16,3 +16,8 @@ Herramientas para trabajar con grandes cantidades de datos
 
 * [Pyspark](https://spark.apache.org/docs/latest/api/python/index.html)
 * [Apache Spark](https://spark.apache.org/)
+
+Uso de SQLAlchemy en Python
+
+[SQLAlchemy. Guía de inicio](https://j2logo.com/python/sqlalchemy-tutorial-de-python-sqlalchemy-guia-de-inicio/)
+

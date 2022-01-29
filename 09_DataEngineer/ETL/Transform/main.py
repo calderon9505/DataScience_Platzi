@@ -103,5 +103,5 @@ if __name__ == '__main__':
 # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 # cd .\09_DataEngineer\ETL\
 # .\venv\Scripts\activate
-# py .\Transform\newspaper_receipe.py .\Extract\elpais_2022_01_25.csv
-# py .\Transform\newspaper_receipe.py .\Extract\eluniversal_2022_01_25.csv
+# py .\Transform\main.py .\Extract\elpais_2022_01_25.csv
+# py .\Transform\main.py .\Extract\eluniversal_2022_01_25.csv
