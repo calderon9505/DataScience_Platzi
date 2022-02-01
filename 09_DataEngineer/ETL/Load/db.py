@@ -14,7 +14,15 @@ from sqlalchemy.orm import sessionmaker
 
 
 # {database_type}://{user}:{password}@{host}/{database}
-Engine = create_engine('sqlite:///newspaper.db')
+# Engine = create_engine('sqlite:///newspaper.db')
+database_type = 'mysql+mysqldb'
+user = 'root'
+password = '2705'
+host = 'localhost:3306'
+database = 'newspaper'
+conn_string = f'{database_type}://{user}:{password}@{host}/{database}'
+Engine = create_engine(conn_string)
+# Engine = create_engine( '{"mysql"}://{"root"}:{"2705"}@{"localhost:3306"}/{"newspaper"}' )
 
 # Método factoría (patrón de diseño) usado para crear la Session.
 Session = sessionmaker(bind=Engine)

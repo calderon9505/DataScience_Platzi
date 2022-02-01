@@ -31,7 +31,7 @@ def _read_data(path):
 
 def _add_newspaper_uid_column(df, path):
     # No sirve para cualquier Path
-    newspaper_uid = path.split('\\')[2].split('_')[0]
+    newspaper_uid = path.split('\\')[-1].split('_')[0]
     df['newspaper_uid'] = newspaper_uid
     logger.info(f'newspaper uid column filled: {newspaper_uid}')
 
@@ -85,8 +85,8 @@ def _drop_rows_with_missing_values(df):
     logger.info('rows with missing values dropped')
 
 def _save_data(df, path):
-    filename = path.split('\\')[2]
-    filename = f'.\Transform\clean_{filename}'
+    filename = path.split('\\')[-1]
+    filename = f'clean_{filename}'
     # df.to_csv(filename)
     # La codificación es importante para excel
     # aunque se puede ajustar desde excel
@@ -103,5 +103,6 @@ if __name__ == '__main__':
 # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 # cd .\09_DataEngineer\ETL\
 # .\venv\Scripts\activate
-# py .\Transform\main.py .\Extract\elpais_2022_01_25.csv
-# py .\Transform\main.py .\Extract\eluniversal_2022_01_25.csv
+# cd Transform
+# py main.py ..\Extract\elpais_2022_01_25.csv
+# py main.py ..\Extract\eluniversal_2022_01_25.csv

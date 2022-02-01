@@ -87,6 +87,7 @@ def _save_articles(news_site_uid, articles):
     # Buenas prácticas de programación, se hace lo más general posible.
     csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))
 
+    # Se configura para guardarse la carpeta correspondiente
     with open(out_file_name, mode='w+', encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(csv_headers)
@@ -120,6 +121,6 @@ if __name__ == '__main__':
     _news_scraper(args.news_site)
 
 # Ejecutar de la siguente manera
-# $ py main.py eluniversal
-# Ejecutar dentro de la carpeta de archivos para VSCode
+# $ py Extract\main.py eluniversal
+# Ejecutar dentro de la carpeta de archivos para VSCode ETL
     

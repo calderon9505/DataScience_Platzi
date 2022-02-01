@@ -45,7 +45,7 @@ class HomePage(NewsPage):
                 link_list.append(link)
 
         # Algunos enlaces tienen espacios raros al final y al comienzo
-        return set(link['href'].strip() for link in link_list)
+        return set(link['href'].strip() for link in link_list[:6])
 
     
 class ArticlePage(NewsPage):

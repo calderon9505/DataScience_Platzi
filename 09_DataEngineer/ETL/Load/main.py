@@ -17,30 +17,34 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def main(filename):
+def main(path):
     
     # Crear (si no existe) las tablas de todos los modelos
     Base.metadata.create_all(Engine)
     # Obtener una Session
     session = Session()
 
-    articles = pd.read_csv(filename)
+    articles = pd.read_csv(path)
 
     for index, row in articles.iterrows():
         logger.info(index)
-        logger.info('Loading article uid {} into DB'.format(row['uid']))
-        article = Article(
-                        row['uid'],
-                        row['body'],
-                        row['title'],
-                        row['url'],
-                        row['newspaper_uid'],
-                        row['host'],
-                        row['n_tokens_title'],
-                        row['n_tokens_body'],
-                        )
+        id = session.query(Article).get(row['uid'])
+        if not id:
+            logger.info('Loading article uid {} into DB'.format(row['uid']))
+            article = Article(
+                            row['uid'],
+                            row['body'],
+                            row['title'],
+                            row['url'],
+                            row['newspaper_uid'],
+                            row['host'],
+                            row['n_tokens_title'],
+                            row['n_tokens_body'],
+                            )
+            session.add(article)
+        else:
+            logger.info('Article uid {} already exist'.format(row['uid']))
 
-        session.add(article)
 
     session.commit()
     session.close()
@@ -48,10 +52,13 @@ def main(filename):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('filename',
-                        help='The file you want to load into the db',
+    parser.add_argument('path',
+                        help='The path to the clean data',
                         type=str)
 
     args = parser.parse_args()
 
-    main(args.filename)
+    main(args.path)
+
+
+# https://sqliteonline.com/
