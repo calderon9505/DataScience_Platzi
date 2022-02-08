@@ -43,7 +43,7 @@ Command | Objeto | Output or Description
 ------- | ------ | ------
 `soup.find_all()` | `bs4.element.ResultSet` | Se explica más adelante.
 `soup.find()` | `bs4.element.Tag` | Igual que `find_all()`
-`soup.get_text()` | `str` | Todo el texto de la página
+`soup.get_text()` | `str` | Todo el texto del objeto `BeautifulSoup`
 
 
 ### *Multi-valued attributes*
