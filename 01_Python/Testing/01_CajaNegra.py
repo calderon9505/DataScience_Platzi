@@ -1,5 +1,7 @@
 # Esta son pruebas para verificar que, dados unos inputs,
 # obtenemos los outputs que esperamos.
+# Todos los métodos que defina como casos de prueba
+# deben comenzar con la palabra "test"
 
 import unittest
 
