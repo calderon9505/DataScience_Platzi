@@ -1,6 +1,6 @@
 # Interfaces
 
-Conjunto de métodos que tiene que tener un objeto para que pueda cumplir una determinada función. Es decir, define cómo un objeto y lo que se puede hacer con él.
+Conjunto de métodos que tiene que tener un objeto para que pueda cumplir una determinada función. Es decir, define cómo es un objeto y lo que se puede hacer con él.
 
 > Las interfaces no poseen código asociado, pues se centra en el **qué** y no el **cómo**.
 
@@ -10,7 +10,7 @@ Una clase implementa una interfaz cuando añade código a los métodos que no lo
 
 ## Interfaces informales
 
-Son simples clases que no implementas los métodos.
+Son simples clases que no implementan los métodos.
 
 ```py
 class Mando:

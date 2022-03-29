@@ -47,19 +47,3 @@ $ aws ec2 create-security-group --group-name security-group-from-cli --descripti
 
 ---
 
-Creación de un *Bucket* en **S3**
-```
-$ aws s3 mb s3://bucket-from-cli-calderon950527
-```
-```
-make_bucket: bucket-from-cli-calderon950527
-```
-
-subir archivo al bucket
-
-```
-$ aws s3 cp test_1.py s3://bucket-from-cli-calderon950527
-```
-```
-upload: ./test_1.py to s3://bucket-from-cli-calderon950527/test_1.py
-```
