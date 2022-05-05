@@ -132,6 +132,10 @@ export PYSPARK_PYTHON=python3
 
 Ejecutar `bash` para activar los cambios de `.bashrc`
 
+## Ejecutar Spark en la terminal
+
+Ingresando a la carpeta `spark` ejecutar el comando `pyspark`
+
 ---
 
 Para ejecutar código de spark se usa `spark/bin/pyspark`.
@@ -147,3 +151,13 @@ Descargué los archivos de ejemplo y los guardé en una carpeta llamada spark-co
 La ejecución desde la terminal se usa principalmente para ejecutar códigos probados y listos para entrar en producción. Para ambientes de pruebas se usan los Jupyter notebooks.
 
 Creé un archivo `ejemplo1.ipynb` y lo abrí con VSCode, el cual se encarga de instalar lo necesario para usarlo.
+
+
+
+python3 -m venv spark-env-scala
+
+source spark-env-scala/bin/activate
+
+pip3 install spylon-kernel
+
+ rm -r spark-env-scala/
