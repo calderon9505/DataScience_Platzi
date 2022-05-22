@@ -1,0 +1,12 @@
+{
+    "log_level": "DEBUG",
+    "spark_master": "yarn-client",
+    "spark_log_level" : "WARN",
+    "directory_hdfs" : "/produccion/davivienda/8096_TEC_PLANEACION_Y_RIESGO/fact_saldos",
+    "periodo" : ["20220102","20220202"],
+    "base_datos_bq" : "streaming",
+    "key" : "serv-traza",
+    "proyecto_bq" : "wb-streaming",
+    "time_zone" : "America/Bogota",
+    "usuario_kerberos" : "s-aprov_prot"
+}
