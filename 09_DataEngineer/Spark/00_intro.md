@@ -161,3 +161,18 @@ source spark-env-scala/bin/activate
 pip3 install spylon-kernel
 
  rm -r spark-env-scala/
+
+
+
+ # Adicional
+
+ para ejecutar archivos programados en Scala desde WSL
+
+ ```sh
+ cd test-scala-spark/
+~/spark/bin/spark-shell -i Example.scala
+
+scala> Example.main(Array())
+ ```
+
+ https://bigdataprogrammers.com/how-to-execute-scala-script-in-spark-submit-without-creating-jar/

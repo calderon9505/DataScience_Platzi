@@ -116,6 +116,8 @@ Las migraciones a Cloud SQL son sencillas gracias a **Database Migration Service
 
 Cloud SQL se usa cuando se tienen usuarios en una región específica, y donde la latencia no sea un gran problema.
 
+Este es el único servicio basado en VMs.
+
 
 
 # CLOUD SPANNER

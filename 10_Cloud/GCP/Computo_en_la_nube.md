@@ -8,6 +8,12 @@
 
 > El computo en la nube es "una computadora enorme" de escala mundial a la cual tengo acceso, y donde GCP es el sitema operativo. (David Aroesti)
 
+- A **region** is a specific geographical location where you can run your resources
+
+- A **zone** is a deployment area for Google Cloud Platform resources within a region.
+
+- A **point of presence** (PoP) is where Google's network is connected to the rest of the internet
+
 [Measure your latency to Google Cloud regions](https://gcping.com/)
 
 [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator)
@@ -17,29 +23,25 @@
 
 # Jerarquía de recursos
 
-> Todo en GCP es un recurso (una VM, un disco duro, una GKE, un app engine, un switch de red, una regla de seguridad del firewall, etc)
-
 - **Organización** (billling account, grupos de administradores, permisos principales, identidades)
 
 - **Carpetas**. Pueden tener proyectos o otras carpetas.
 
 - **Proyectos**. Tienen los recursos dentro de GCP.
 
-- **Recuros**.
+- **Recurso**. Todo en GCP es un recurso: una VM, un disco duro, una GKE, un app engine, un switch de red, una regla de seguridad del firewall, etc.
 
 
 # IAM
 
-- **Quién**. Es el "miembro". Puede referirse a una persona real o a un subsistema (una aplicación por ejemplo). El **Zero Trust** es un concepto de seguridad que hace referencia a que se tiene cero confianza, esto es, todo va cifrado y todo requiere permisos, incluso dentro del perímetro de seguridad. Un **Service Account** es la identidad de una aplicación.
+* **Group**: Es un conjunto de  **users**. Un user puede ser una persona o un susbsistema. Los subistemas de identifican con los **Service Account**
 
-- **Puede hacer qué**. (Generar buckets de storage, prender VMs, generar ususario, generar bases de datos, borrarlas, actualizarlas, etc)
+* **Role**: Es un conjunto de **permissions**. Un permission es una acción determinada sobre un recurso determinado.
 
-- **En cuál recurso**. Las **políticas de seguridad** se asignan a cada uno de los recursos. 
+* **Policy**: Una política relaciona un **group** (who) con un **role** (can do what) sobre un **resource** (On which resource).
 
-Todo esto para indicar qué miembros tiene qué roles sobre qué recurso.
+Aunque se pueden asignar permisos a usuarios de manera directa, lo correcto sería asignar roles a grupos.
 
-Normalmente los permisos no se asignan de manera directa, sino que se genera un rol. Un rol es una colección de permisos. (rol de administrador de red, por ejemplo, con permisos para redes, subredes, conexiones entre redes, rangos IP, etc). Los roles no suelen asignarse a personas, sino a grupos. 
+Se pueden generar policys en cualquier punto de la jerarquia(Projects, folders, and organization nodes. Some GCP resources let you put policies on individual resources too, like GCS) y dicha política se hereda hacia abajo. Es decir, si alguien tiene el permiso de crear buckets a nivel organización, tambien tienen permiso para generar buckets en todos los proyectos de dicha organización. Pero si la política va en una carpeta, solo tendrías acceso a los proyectos que contenga dicha carpeta. Igual a nivel proyecto.
 
-Se pueden generar políticas en cualquier punto de la jerarquia y dicha política se hereda hacia abajo. Es decir, si alguien tiene el permiso de crear buckets a nivel organización, tambien tienen permiso para generar buckets en todos los proyectos de dicha organización. Pero si la política va en una carpeta, solo tendrías acceso a los proyectos que contenga dicha carpeta. Igual a nivel proyecto.
-
-Yo creo una politica, en donde relaciono roles y miembros, y dicha política se la pego a un determinado recurso.
+> El **Zero Trust** es un concepto de seguridad que hace referencia a que se tiene cero confianza, esto es, todo va cifrado y todo requiere permisos, incluso dentro del perímetro de seguridad.
