@@ -32,6 +32,28 @@ To access via RDP(remote desktop protocol) it requires firewall rule to allow tc
 
 
 
+# Familias de VMs
+
+## Propósito general
+
+* **E2**: *Económicas*. Se usan en ambientes Dev & Test. Se usan en ambientes productivos con tráficos no altos. Bases de datos. Microservicios.
+
+* **N2/N2D**: *Balanceadas*. Mayores capacidades de cómputo. Soportan tráficos altos. Mucha transaccionalidad.
+
+* **TAU/T2D**: *Escalables*. picos de tráfico. Web servers. Microservicios contenerizados. Grandes aplicaciones Java.
+
+## Trabajo optimizado
+
+* **C2**: *Optimización cómputo*. Mejor desempeño CPUs. Gaming. Modelado científico.
+
+* **M1/M2**: *Optimización memoria*. Mayor memoria (RAM). Real-time data analytics. In-memory cache. DBs. SAP HANA (database in memory)
+
+* **A2**: *Optimización aceleración*. GPUs de alto desempeño. ML. Computación en paralelo masiva.
+
+## Personalizadas
+
+Se escoge alguna máquina preestablecida y se personalizan los cores y la memoria.
+
 # `gcloud` commands
 
 El grupo de comandos **gcloud** permite administar los recursos de **Compute Engine**
@@ -91,3 +113,15 @@ Para listar las instancias
 ```
 gcloud compute instances list
 ```
+
+## Conectarme a una VM
+
+GCP ofrece un mecanismo de seguridad basado en el entorno del usuario: **IAP** (Identity-Aware Proxy). Por medio de esto se puede conectar a la VM. La ventaja de esto es que no se requiere IP pública para conectarse.
+
+Se debe crear una regla de Firewall en la VPC seleccionada. Esta regla permitirá la conexión SSH pero solo a través de AIP para tráfico de entrada. El **Source IP ranges** debe ser 35.235.240.0/20 (esto viene de la documentación). Protocolo **tcp** puerto 22.
+
+```sh
+gcloud compute ssh <VM_NAME> --zone us-east1-b --tunnel-through-iap
+```
+
+GCP ofrece el servicio de **Cloud NAT** para permitir un canal de salida a internet para máquinas que no tienen acceso a internet (no tienen IP pública). Cloud NAT se asigna a una VPC en una región específica. Se debe crear un Router en la región.
