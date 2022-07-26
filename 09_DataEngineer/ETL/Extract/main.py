@@ -108,7 +108,7 @@ if __name__ == '__main__':
     # 'news_site': variable donde se guardará el valor recibido por consola
     # help: ayuda para el usuario usando el comando -h
     # type: tipo de dato destino
-    # choices: opcioens válidas de entrada.
+    # choices: opciones válidas de entrada.
     parser.add_argument('news_site',
                         help='The news site that you want to scrape',
                         type=str,

@@ -83,7 +83,7 @@ Cada worker node tiene un POD (o varios?). Dentro del POD están los contenedore
 
 # GKE
 
-Para administrar la infraestructua de los kubernetes se usa GKE. Hace más fácil traer las cargad de trabajo de kubernetes a la nube.
+Para administrar la infraestructua de los kubernetes se usa GKE. Hace más fácil traer las cargas de trabajo de kubernetes a la nube.
 
 Se integra con Cloud Build, Container Registry, IAM, Cloud Monitoring, VPC.
 

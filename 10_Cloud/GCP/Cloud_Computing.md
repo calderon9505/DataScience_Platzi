@@ -34,7 +34,7 @@
 
 # IAM
 
-* **Group**: Es un conjunto de  **users**. Un user puede ser una persona o un susbsistema. Los subistemas de identifican con los **Service Account**
+* **Group**: Es un conjunto de  **users**. Un user puede ser una persona o un susbsistema. Los subistemas se identifican con los **Service Account**
 
 * **Role**: Es un conjunto de **permissions**. Un permission es una acción determinada sobre un recurso determinado.
 
@@ -42,6 +42,6 @@
 
 Aunque se pueden asignar permisos a usuarios de manera directa, lo correcto sería asignar roles a grupos.
 
-Se pueden generar policys en cualquier punto de la jerarquia(Projects, folders, and organization nodes. Some GCP resources let you put policies on individual resources too, like GCS) y dicha política se hereda hacia abajo. Es decir, si alguien tiene el permiso de crear buckets a nivel organización, tambien tienen permiso para generar buckets en todos los proyectos de dicha organización. Pero si la política va en una carpeta, solo tendrías acceso a los proyectos que contenga dicha carpeta. Igual a nivel proyecto.
+Se pueden generar policys en cualquier punto de la jerarquia (Projects, folders, and organization nodes. Some GCP resources let you put policies on individual resources too, like GCS) y dicha política se hereda hacia abajo. Es decir, si alguien tiene el permiso de crear buckets a nivel organización, tambien tienen permiso para generar buckets en todos los proyectos de dicha organización. Pero si la política va en una carpeta, solo tendrías acceso a los proyectos que contenga dicha carpeta. Igual a nivel proyecto.
 
 > El **Zero Trust** es un concepto de seguridad que hace referencia a que se tiene cero confianza, esto es, todo va cifrado y todo requiere permisos, incluso dentro del perímetro de seguridad.

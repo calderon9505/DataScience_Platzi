@@ -122,7 +122,7 @@ Este es el único servicio basado en VMs.
 
 # CLOUD SPANNER
 
-Otro servicio de base de datos **SQL** completamente administrado con transacciones ACID. Es de nivel empresarial(y global). 
+Otro servicio de base de datos **SQL** completamente administrado con transacciones ACID. Es de nivel empresarial (y global). 
 
 A diferencia de Cloud SQL, Cloud Spanner tiene muy baja latencia, y se usa para aplicaciones que requieren presencia a nivel mundial.
 
@@ -202,4 +202,14 @@ Firestore tiene dos modos:
 - Native mode
 - Datastore mode
 
+---
+---
 
+# BigQuery
+
+- Data warehouse totalmente administrado y serverless.
+- Escala a petabytes y baja latencia
+- Disponible en multiples regiones
+- Separa almacenamiento y cómputo
+- Posee librerias para ML
+- Se puede conectar con Sheets de Google

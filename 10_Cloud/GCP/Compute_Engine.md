@@ -28,7 +28,7 @@ It will scale at:
 
 To access via SSH it requires firewall rule to allow tcp:22 (for Linux)
 
-To access via RDP(remote desktop protocol) it requires firewall rule to allow tcp:3389 (for Linux)
+To access via RDP(remote desktop protocol) it requires firewall rule to allow tcp:3389 (for Windows)
 
 
 
@@ -54,65 +54,7 @@ To access via RDP(remote desktop protocol) it requires firewall rule to allow tc
 
 Se escoge alguna máquina preestablecida y se personalizan los cores y la memoria.
 
-# `gcloud` commands
 
-El grupo de comandos **gcloud** permite administar los recursos de **Compute Engine**
-
-para listar las cuentas activas
-```
-gcloud auth list
-```
-
-para listar la configuración del proyecto
-```
-gcloud config list
-gcloud config list project
-```
-
-para cambiar el proyecto al que apunta el Cloud Shell
-```
-gcloud config set <PROJECT_ID>
-```
-
-Propiedades predeterminadas de mi VM
-```
-gcloud compute project-info describe --project <PROJECT_ID>
-```
-
-Para ver la region/zona predeterminada
-
-```
-gcloud config get-value compute/region
-gcloud config get-value compute/zone
-```
-
-Para listar regiones/zonas disponibles
-
-```
-gcloud compute regions list
-gcloud compute zones list
-gcloud compute zones list | grep us
-```
-
-Los comandos `gcloud compute` requieren marcas para `--region` o `--zone`. Se puede establecer una región o zona *predeterminada* y así evitar el uso de las marcas. Si a un comando se le pasa marca de región/zona, se anulan la region/zona predeterminada. 
-
-La región/zona predeterminada se puede hacer de tres maneras(cada una sobreescribe la otra):
-- En el servidor de metadatos
-- En el cliente local
-- En las variables de entorno
-
-Para establecer region/zona en el cliente local
-
-```
-gcloud config set compute/region REGION
-gcloud config set compute/zone ZONE
-```
-
-Para listar las instancias
-
-```
-gcloud compute instances list
-```
 
 ## Conectarme a una VM
 

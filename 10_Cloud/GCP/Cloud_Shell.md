@@ -50,3 +50,67 @@ nano .profile
 source infraclass/config
 ```
 
+# `gcloud` commands
+
+Listar las cuentas activas
+```
+gcloud auth list
+```
+
+Cambiar proyecto al que apunta el Shell
+```
+gcloud config set project <PROJECT_ID>
+```
+
+Autenticarse con una nueva cuenta
+```
+gcloud config set account <ACCOUNT>
+gcloud auth login
+```
+
+Configuraciones del proyecto
+```
+gcloud config list
+
+gcloud config list project
+gcloud config list account
+
+gcloud config get-value compute/region
+gcloud config get-value compute/zone
+```
+
+
+Propiedades de mi proyecto
+```
+gcloud compute project-info describe
+gcloud compute project-info describe --project <PROJECT_ID>
+```
+
+
+Para listar regiones/zonas disponibles
+
+```
+gcloud compute regions list
+gcloud compute zones list
+gcloud compute zones list | grep us
+```
+
+Los comandos `gcloud compute` requieren marcas para `--region` o `--zone`. Se puede establecer una región o zona *predeterminada* y así evitar el uso de las marcas. Si a un comando se le pasa marca de región/zona, se anulan la region/zona predeterminada. 
+
+La región/zona predeterminada se puede hacer de tres maneras(cada una sobreescribe la otra):
+- En el servidor de metadatos
+- En el cliente local
+- En las variables de entorno
+
+Para establecer region/zona en el cliente local
+
+```
+gcloud config set compute/region <REGION>
+gcloud config set compute/zone <ZONE>
+```
+
+Para listar las instancias
+
+```
+gcloud compute instances list
+```
